@@ -40,7 +40,8 @@ dino_data %>%
 ```
 
 ### Exercise 3
-Plot of Star data set.
+
+Plot of Star data set:
 
 ```{r plot-star}
 dino_data <- datasaurus_dozen %>%
@@ -50,17 +51,17 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-Correlation coefficnet for Star data set.
+Correlation coefficnet for Star data set:
 
 ```{r cor-star}
 dino_data %>%
   summarize(r = cor(x, y))
 ```
-This r value is very similar to the r value of the dino dataset.
+This r value of the star data set is very similar to the r value of the dino dataset, but there is a weaker correlation in the negative direction in the star data set.
 
 ### Exercise 4
 
-Plot of circle data set.
+Plot of circle data set:
 
 ```{r}
 dino_data <- datasaurus_dozen %>%
@@ -70,7 +71,7 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-Correlation coefficient of circle data set.
+Correlation coefficient of circle data set:
 
 ```{r}
 dino_data %>%
@@ -80,4 +81,20 @@ The r value of the circle data set is higher in the negative direction. This dif
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.)
+Plots of all of the data sets:
+
+```{r}
+ggplot(data = datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
+
+Correlation coefficients for all of the data sets:
+
+```{r}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x,y)) %>%
+  print(13)
+```
