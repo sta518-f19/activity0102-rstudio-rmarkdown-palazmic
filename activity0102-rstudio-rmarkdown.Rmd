@@ -57,17 +57,26 @@ dino_data %>%
   summarize(r = cor(x, y))
 ```
 This r value is very similar to the r value of the dino dataset.
+
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+Plot of circle data set.
 
 ```{r}
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
 
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
+
+Correlation coefficient of circle data set.
 
 ```{r}
-
+dino_data %>%
+  summarize(r = cor(x, y))
 ```
+The r value of the circle data set is higher in the negative direction. This difference is not much, but the r value of circle has a stronger negative correlation than the dino data set. 
 
 ### Exercise 5
 
