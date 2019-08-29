@@ -2,7 +2,11 @@
 title: "Activity 1.2 - RStudio and R Markdown"
 author: "Michael Palazzolo"
 date: "8/29/2019"
-output: html_document
+output: 
+  html_document: 
+    fig_width: 5
+    highlight: tango
+    theme: journal
 ---
 
 ### Load packages
@@ -89,6 +93,8 @@ ggplot(data = datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
   facet_wrap(~ dataset, ncol = 3) +
   theme(legend.position = "none")
 ```
+
+The color = dataset made each plot a different color, so that you can tell the different plots by color. The ncol = 3 made three columns of plots that were shown in the output. The number of rows depneded on how many plots there were, but there would be only 3 columns. The theme comman made it so that there was no legend showing which plots go with which color.
 
 Correlation coefficients for all of the data sets:
 
